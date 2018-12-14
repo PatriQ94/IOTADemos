@@ -1,0 +1,22 @@
+﻿<Window x:Class="IOTADemos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IOTADemos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="760" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.904" Margin="0,0,0,400" TextWrapping="Wrap" Text="Choose an IOTA demo" VerticalAlignment="Center" Width="480.893" FontSize="48" FontFamily="Segoe UI Light"/>
+        <TextBlock x:Name="Insert_seed_text" HorizontalAlignment="Center" Height="27.803" Margin="0,0,0,310" Text="Before that, insert your seed (private key) or generate a random one" VerticalAlignment="Center" Width="516.933" FontSize="18" FontFamily="Segoe UI Light" TextWrapping="Wrap"/>
+        <TextBox x:Name="SeedInput" HorizontalAlignment="Left" Height="45.993" Margin="117.534,244.518,0,0" TextWrapping="Wrap" Text="Insert your seed" VerticalAlignment="Top" Width="516.932" FontSize="16" Background="#FFDDDDDD" Padding="5,10,5,5"/>
+        <Rectangle x:Name="Demo1_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="117.534,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="149.804"/>
+        <Rectangle x:Name="Demo2_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="294.158,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="154.953"/>
+        <Rectangle x:Name="Demo3_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="479.513,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="154.953"/>
+        <Rectangle x:Name="Randomize_seed_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="31.922" Margin="204.033,307.868,0,0" Stroke="Black" VerticalAlignment="Top" Width="334.129"/>
+        <TextBlock x:Name="Randomize_seed_textbox" HorizontalAlignment="Center" Height="31.922" Margin="204.033,307.868,213.838,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334.129" FontSize="20" Padding="90,0,0,10" Foreground="White" Text="Randomize seed"/>
+        <TextBlock x:Name="Demo1_textbox" HorizontalAlignment="Left" Height="97.826" Margin="117.534,416.138,0,0" TextWrapping="Wrap" Text="Demo 1" VerticalAlignment="Top" Width="149.804" FontSize="36" Padding="13,20,10,10" Foreground="White"/>
+        <TextBlock x:Name="Demo2_textbox" HorizontalAlignment="Left" Height="97.826" Margin="294.158,416.138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154.953" FontSize="36" Padding="13,20,10,10" Foreground="White"><Run Text="Demo "/><Run Text="2"/></TextBlock>
+        <TextBlock x:Name="Demo3_textbox" HorizontalAlignment="Left" Height="97.826" Margin="479.513,416.138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154.953" FontSize="36" Padding="13,20,10,10" Foreground="White"><Run Text="Demo "/><Run Text="3"/></TextBlock>
+    </Grid>
+</Window>
