@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace IOTADemos
 {
@@ -23,6 +11,28 @@ namespace IOTADemos
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
+
+        private void FillNodeDropDown() {
+            //Node_chooser.Items.Add("This is random test item from code");
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var numberOfWindows = App.Current.Windows.Count - 1;
+            for (int intCounter = numberOfWindows; intCounter >= 0; intCounter--) {
+                App.Current.Windows[intCounter].Close();
+            }
+        }
+
+        private void Continue_button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            DemoChooser dc = new DemoChooser();
+            dc.ShowDialog();
+        }
+
     }
 }

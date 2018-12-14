@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOTADemos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="760" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="760" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.904" Margin="0,0,0,400" TextWrapping="Wrap" Text="Choose an IOTA demo" VerticalAlignment="Center" Width="480.893" FontSize="48" FontFamily="Segoe UI Light"/>
         <TextBlock x:Name="Insert_seed_text" HorizontalAlignment="Center" Height="27.803" Margin="0,0,0,310" Text="Before that, insert your seed (private key) or generate a random one" VerticalAlignment="Center" Width="516.933" FontSize="18" FontFamily="Segoe UI Light" TextWrapping="Wrap"/>
-        <TextBox x:Name="SeedInput" HorizontalAlignment="Left" Height="45.993" Margin="117.534,244.518,0,0" TextWrapping="Wrap" Text="Insert your seed" VerticalAlignment="Top" Width="516.932" FontSize="16" Background="#FFDDDDDD" Padding="5,10,5,5"/>
-        <Rectangle x:Name="Demo1_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="117.534,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="149.804"/>
-        <Rectangle x:Name="Demo2_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="294.158,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="154.953"/>
-        <Rectangle x:Name="Demo3_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="97.826" Margin="479.513,416.138,0,0" Stroke="Black" VerticalAlignment="Top" Width="154.953"/>
-        <Rectangle x:Name="Randomize_seed_background" Fill="#FF006EC9" HorizontalAlignment="Left" Height="31.922" Margin="204.033,307.868,0,0" Stroke="Black" VerticalAlignment="Top" Width="334.129"/>
-        <TextBlock x:Name="Randomize_seed_textbox" HorizontalAlignment="Center" Height="31.922" Margin="204.033,307.868,213.838,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334.129" FontSize="20" Padding="90,0,0,10" Foreground="White" Text="Randomize seed"/>
-        <TextBlock x:Name="Demo1_textbox" HorizontalAlignment="Left" Height="97.826" Margin="117.534,416.138,0,0" TextWrapping="Wrap" Text="Demo 1" VerticalAlignment="Top" Width="149.804" FontSize="36" Padding="13,20,10,10" Foreground="White"/>
-        <TextBlock x:Name="Demo2_textbox" HorizontalAlignment="Left" Height="97.826" Margin="294.158,416.138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154.953" FontSize="36" Padding="13,20,10,10" Foreground="White"><Run Text="Demo "/><Run Text="2"/></TextBlock>
-        <TextBlock x:Name="Demo3_textbox" HorizontalAlignment="Left" Height="97.826" Margin="479.513,416.138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154.953" FontSize="36" Padding="13,20,10,10" Foreground="White"><Run Text="Demo "/><Run Text="3"/></TextBlock>
+        <TextBox x:Name="SeedInput" HorizontalAlignment="Left" Height="45.993" Margin="117.534,244.518,0,0" TextWrapping="Wrap" Text="Insert your seed" VerticalAlignment="Top" Width="516.932" FontSize="16" Background="#FFDDDDDD" Padding="10,10,5,5"/>
+        <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="717,10,0,0" VerticalAlignment="Top" Width="25" Source="x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <ComboBox x:Name="Node_chooser" HorizontalAlignment="Left" Margin="117.534,396,0,0" VerticalAlignment="Top" Width="516.932" Height="47.46" SelectedIndex="0" FontSize="16" Padding="10,10,5,5">
+            <ComboBoxItem Visibility="Collapsed">Choose a node to connect</ComboBoxItem>
+            <ComboBoxItem Content="Text1" HorizontalAlignment="Left" Width="514.932"/>
+            <ComboBoxItem Content="random text 2" HorizontalAlignment="Left" Width="514.932"/>
+        </ComboBox>
+        <Button x:Name="Continue_button" Content="Continue" HorizontalAlignment="Left" Margin="467.346,494.971,0,0" VerticalAlignment="Top" Width="167.12" Height="52.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Continue_button_Click"/>
+        <Button x:Name="Randomize_seed_button" Content="Randomize seed" HorizontalAlignment="Left" Margin="189.346,295.511,0,0" VerticalAlignment="Top" Width="382.12" Height="31.159" Background="#FF006EC9" FontSize="22" Foreground="White"/>
     </Grid>
 </Window>
