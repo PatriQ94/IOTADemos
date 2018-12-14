@@ -14,7 +14,6 @@ namespace IOTADemos
     public partial class MainWindow : Window
     {
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -25,7 +24,6 @@ namespace IOTADemos
         /// This method fills the dropdownlist for nodes
         /// </summary>
         private void FillNodeDropDown() {
-
             var responseString = Static.client.GetStringAsync("https://nodes.iota.works/api/ssl/live").Result;
 
             if (!string.IsNullOrEmpty(responseString)) {
@@ -57,9 +55,12 @@ namespace IOTADemos
         {
             var seed = SeedInput.Text;
             if (string.IsNullOrEmpty(seed) || seed.Length != 81) {
-                MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length of 81 characters and only uppercase A-Z characters plus number 9.");
+                MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length of 81 characters and contain only uppercase A-Z characters plus number 9.");
                 return;
             }
+
+            //Set seed
+            Static.seed = SeedInput.Text;
 
             this.Hide();
             DemoChooser dc = new DemoChooser();
@@ -67,7 +68,7 @@ namespace IOTADemos
         }
 
         /// <summary>
-        /// This method generates a random seed on block. WARNING: The method is not safe. It is only used for testing purposes.
+        /// This method generates a random seed on click. WARNING: The seed generation is not safe. It is only used for testing purposes.
         /// </summary>
         private void Randomize_seed_button_Click(object sender, RoutedEventArgs e)
         {
