@@ -9,7 +9,8 @@ namespace IOTADemos.BO
 {
     class Static
     {
+        public static readonly List<char> alphabet = new List<char>() { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '9' };
         public static readonly HttpClient client = new HttpClient();
-        public static Random rnd = new Random();
+        public static Random random = new Random();
     }
 }

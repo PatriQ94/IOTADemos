@@ -38,6 +38,9 @@ namespace IOTADemos
             }           
         }
 
+        /// <summary>
+        /// Exit app
+        /// </summary>
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var numberOfWindows = App.Current.Windows.Count - 1;
@@ -46,8 +49,18 @@ namespace IOTADemos
             }
         }
 
+        /// <summary>
+        /// This method is used to go to second screen (Choose demo)
+        /// It also validates that input data is correct
+        /// </summary>
         private void Continue_button_Click(object sender, RoutedEventArgs e)
         {
+            var seed = SeedInput.Text;
+            if (string.IsNullOrEmpty(seed) || seed.Length != 81) {
+                MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length of 81 characters and only uppercase A-Z characters plus number 9.");
+                return;
+            }
+
             this.Hide();
             DemoChooser dc = new DemoChooser();
             dc.ShowDialog();
@@ -56,16 +69,13 @@ namespace IOTADemos
         /// <summary>
         /// This method generates a random seed on block. WARNING: The method is not safe. It is only used for testing purposes.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Randomize_seed_button_Click(object sender, RoutedEventArgs e)
         {
             var seed = "";
-            List<char> alphabet = new List<char>() {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','9'};
             for (int i = 0; i < 81; i++)
             {
-                int r = Static.rnd.Next(alphabet.Count);
-                seed += alphabet[r].ToString();
+                int r = Static.random.Next(Static.alphabet.Count);
+                seed += Static.alphabet[r].ToString();
             }
             SeedInput.Text = seed;
         }
