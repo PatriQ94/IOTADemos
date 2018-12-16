@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace IOTADemos
+namespace IOTADemos.Windows
 {
     /// <summary>
-    /// Interaction logic for DemoChooser.xaml
+    /// Interaction logic for Demo1.xaml
     /// </summary>
-    public partial class DemoChooser : Window
+    public partial class Demo1 : Window
     {
-        public DemoChooser()
+        public Demo1()
         {
             InitializeComponent();
         }
