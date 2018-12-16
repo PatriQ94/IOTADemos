@@ -9,7 +9,21 @@
     <Grid>
         <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="54.32" Margin="200,10,185.796,735.68" TextWrapping="Wrap" VerticalAlignment="Center" Width="602.57" FontSize="36" FontFamily="Segoe UI Light"><Run Text="Transaction demo"/><Run Text=" template"/><Run Text=", in progress"/></TextBlock>
         <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="25,382.5,25,0" Stroke="Black" VerticalAlignment="Top" Width="950"/>
+        <Rectangle x:Name="Separator" Fill="Black" HorizontalAlignment="Left" Height="9" Margin="25,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
         <Image x:Name="Back_button" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/back.png" MouseLeftButtonDown="Back_button_MouseLeftButtonDown"/>
+        <TextBlock x:Name="CurrentBalanceTitleBox" HorizontalAlignment="Left" Height="44" Margin="78.5,106.5,0,0" TextWrapping="Wrap" Text="Current balance:" VerticalAlignment="Top" Width="178.5" FontSize="24"/>
+        <TextBlock x:Name="CurrentBalanceInputBox" HorizontalAlignment="Left" Height="44" Margin="262,106.5,0,0" TextWrapping="Wrap" Text="5Mi" VerticalAlignment="Top" Width="115.5" FontSize="24"/>
+        <TextBlock x:Name="SendFundsTitleBox" HorizontalAlignment="Left" Height="44" Margin="78.5,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178.5" FontSize="24"><Run Text="Send funds to"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="SendFundsInputBox" HorizontalAlignment="Center" Height="64.992" Margin="75.62,187,196.5,548.008" TextWrapping="Wrap" VerticalAlignment="Center" Width="727.88" FontSize="16" Background="#FFDDDDDD" Padding="10,10,5,5" Text="Insert recipient address"/>
+        <Button x:Name="SendButton" Content="Send" HorizontalAlignment="Left" Margin="808.5,187,0,0" VerticalAlignment="Top" Width="167.12" Height="64.992" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <TextBlock x:Name="YourWalletText" HorizontalAlignment="Left" Height="33.5" Margin="25,378.5,0,0" TextWrapping="Wrap" Text="Your wallet" VerticalAlignment="Top" Width="182.5" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="RecipientWalletText" HorizontalAlignment="Left" Height="33.5" Margin="25,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontSize="24" FontWeight="Bold"><Run Text="R"/><Run Text="ecipient"/><Run Text=" "/><Run Text="wallet"/></TextBlock>
+        <Button x:Name="RefreshDataButton" Content="Refresh data" HorizontalAlignment="Left" Margin="830,396.316,0,0" VerticalAlignment="Top" Width="145.62" Height="39.492" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="79" Margin="75.62,274,0,0" VerticalAlignment="Top" Width="900" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Number" Header="Number" Width="55"/>
+                <DataGridTextColumn x:Name="TXAddress" Header="Transaction address" Width="845"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
