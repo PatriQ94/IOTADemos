@@ -88,5 +88,15 @@ namespace IOTADemos
             }
             SeedInput.Text = seed;
         }
+
+        private void Seed_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Each wallet is identified and protected by a unique access key known as a ‘seed’. The seed is an 81-character string, comprised of capital letters A-Z and the number 9. It’s important to note that while we call them wallets, they do not actually store tokens. They are better thought of as keychains that provide access to the tokens you store permanently on the ledger.");
+        }
+
+        private void Node_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Full node is one of the participants in the decentralized IOTA network and serves as an API, to which you connect to in order to communicate with the network.");
+        }
     }
 }

@@ -16,7 +16,7 @@
         </ComboBox>
         <Button x:Name="Continue_button" Content="Continue" HorizontalAlignment="Left" Margin="419.346,494.971,0,0" VerticalAlignment="Top" Width="167.12" Height="52.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Continue_button_Click"/>
         <Button x:Name="Randomize_seed_button" Content="Randomize seed" HorizontalAlignment="Left" Margin="182.346,315.511,0,0" VerticalAlignment="Top" Width="382.12" Height="31.159" Background="#FF006EC9" FontSize="22" Foreground="White" Click="Randomize_seed_button_Click"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="64.993" Margin="590.966,244.518,0,0" VerticalAlignment="Top" Width="43.5" Source="question_mark.png"/>
-        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="47.46" Margin="598.966,390,0,0" VerticalAlignment="Top" Width="35.5" Source="question_mark.png"/>
+        <Image x:Name="Seed_question_mark" HorizontalAlignment="Left" Height="64.993" Margin="590.966,244.518,0,0" VerticalAlignment="Top" Width="43.5" Source="question_mark.png" MouseLeftButtonDown="Seed_question_mark_MouseLeftButtonDown"/>
+        <Image x:Name="Node_question_mark" HorizontalAlignment="Left" Height="47.46" Margin="598.966,390,0,0" VerticalAlignment="Top" Width="35.5" Source="question_mark.png" MouseLeftButtonDown="Node_question_mark_MouseLeftButtonDown"/>
     </Grid>
 </Window>
