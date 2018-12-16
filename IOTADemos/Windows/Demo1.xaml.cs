@@ -39,5 +39,23 @@ namespace IOTADemos.Windows
             DemoChooser dc = new DemoChooser();
             dc.ShowDialog();
         }
+
+        private void SendButtonMenu_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryFundsGroup.Visibility = Visibility.Hidden;
+            SendFundsGroup.Visibility = Visibility.Visible;
+        }
+
+        private void ReceiveButtonMenu_Click(object sender, RoutedEventArgs e)
+        {
+            SendFundsGroup.Visibility = Visibility.Hidden;
+            HistoryFundsGroup.Visibility = Visibility.Hidden;
+        }
+
+        private void HistoryButtonMenu_Click(object sender, RoutedEventArgs e)
+        {           
+            SendFundsGroup.Visibility = Visibility.Hidden;
+            HistoryFundsGroup.Visibility = Visibility.Visible;
+        }
     }
 }
