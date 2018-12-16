@@ -54,13 +54,21 @@ namespace IOTADemos
         private void Continue_button_Click(object sender, RoutedEventArgs e)
         {
             var seed = SeedInput.Text;
+            var node = Node_chooser.Text;
             if (string.IsNullOrEmpty(seed) || seed.Length != 81) {
                 MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length of 81 characters and contain only uppercase A-Z characters plus number 9.");
                 return;
             }
 
+            if (string.IsNullOrEmpty(node) || !node.Contains("https"))
+            {
+                MessageBox.Show("Please fix this ugly popup lol. Also please choose a correct node to connect to.");
+                return;
+            }
+
             //Set seed
-            Static.seed = SeedInput.Text;
+            Static.seed = seed;
+            Static.currentNode = node;
 
             this.Hide();
             DemoChooser dc = new DemoChooser();

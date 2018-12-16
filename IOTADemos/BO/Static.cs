@@ -13,5 +13,6 @@ namespace IOTADemos.BO
         public static readonly HttpClient client = new HttpClient();
         public static Random random = new Random();
         public static string seed { get; set; }
+        public static string currentNode { get; set; }
     }
 }

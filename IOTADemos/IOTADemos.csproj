@@ -121,7 +121,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BL\Demo1\" />
+    <Folder Include="BL\Demo2\" />
+    <Folder Include="BL\Demo3\" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="question_mark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\question_mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="question_mark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
