@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using IOTADemos.BO;
 using Newtonsoft.Json;
+using System.Text;
+using System.Linq;
 
 namespace IOTADemos
 {
@@ -23,7 +25,8 @@ namespace IOTADemos
         /// <summary>
         /// This method fills the dropdownlist for nodes
         /// </summary>
-        private void FillNodeDropDown() {
+        private void FillNodeDropDown()
+        {
             var responseString = Static.client.GetStringAsync("https://nodes.iota.works/api/ssl/live").Result;
 
             if (!string.IsNullOrEmpty(responseString)) {
@@ -66,6 +69,15 @@ namespace IOTADemos
                 return;
             }
 
+            foreach (var letter in seed)
+            {
+                if (!Static.alphabet.Contains(letter))
+                {
+                    MessageBox.Show("Seed contains wrong letters. Only uppercase A-Z and number 9 are allowed.");                   
+                    return;
+                }
+            }
+
             //Set seed
             Static.seed = seed;
             Static.currentNode = node;
@@ -89,14 +101,66 @@ namespace IOTADemos
             SeedInput.Text = seed;
         }
 
+        /// <summary>
+        /// Seed help
+        /// </summary>
         private void Seed_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Each wallet is identified and protected by a unique access key known as a ‘seed’. The seed is an 81-character string, comprised of capital letters A-Z and the number 9. It’s important to note that while we call them wallets, they do not actually store tokens. They are better thought of as keychains that provide access to the tokens you store permanently on the ledger.");
+            MessageBox.Show("Each wallet is identified and protected by a unique access key known as a ‘seed’. The seed is an 81-character string, comprised of capital letters A-Z and the number 9. It’s important to note that while we call them wallets, they do not actually store tokens. They are better thought of as keychains that provide access to the tokens you store permanently on the ledger.", "Seed help");
         }
 
+        /// <summary>
+        /// Node help
+        /// </summary>
         private void Node_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Full node is one of the participants in the decentralized IOTA network and serves as an API, to which you connect to in order to communicate with the network.");
+            MessageBox.Show("Full node is one of the participants in the decentralized IOTA network and serves as an API, to which you connect to in order to communicate with the network.", "Node help");
+        }
+
+        private void SeedInput_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var seed = SeedInput.Text.ToString();
+
+            if (seed == "Insert your seed")
+            {
+                return;
+            }
+
+            if (seed.Length > 81)
+            {
+                SeedInput.Text = SeedInput.Text.Substring(0, 81);
+            }
+
+            if (seed.Any(l => char.IsLower(l)))
+            {
+                StringBuilder sb = new StringBuilder(seed);
+                for (int i = 0; i < seed.Length; i++)
+                {
+                    if (char.IsLower(seed[i]))
+                    {
+                        sb[i] = char.ToUpper(seed[i]);
+                    }
+                }
+                SeedInput.Text = sb.ToString();
+            }
+
+            if (SeedInput.SelectionStart == 0)
+            {
+                SeedInput.SelectionStart = SeedInput.Text.Length;
+            }
+        }
+
+        private void SeedInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(SeedInput.Text == "Insert your seed") {
+                SeedInput.Text = "";
+            }
+        }
+
+        private void SeedInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SeedInput.Text))
+                SeedInput.Text = "Insert your seed";
         }
     }
 }
