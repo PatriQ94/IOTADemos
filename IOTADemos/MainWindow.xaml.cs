@@ -59,13 +59,14 @@ namespace IOTADemos
             var seed = SeedInput.Text;
             var node = Node_chooser.Text;
             if (string.IsNullOrEmpty(seed) || seed.Length != 81) {
-                MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length of 81 characters and contain only uppercase A-Z characters plus number 9.");
+                MessageBox.Show("Please fix this ugly popup lol. Also seed has to have length " +
+                    "of 81 characters and contain only uppercase A-Z characters plus number 9.", "Seed validation");
                 return;
             }
 
             if (string.IsNullOrEmpty(node) || !node.Contains("https"))
             {
-                MessageBox.Show("Please fix this ugly popup lol. Also please choose a correct node to connect to.");
+                MessageBox.Show("Please fix this ugly popup lol. Also please choose a correct node to connect to.", "Node validation");
                 return;
             }
 
@@ -73,7 +74,7 @@ namespace IOTADemos
             {
                 if (!Static.alphabet.Contains(letter))
                 {
-                    MessageBox.Show("Seed contains wrong letters. Only uppercase A-Z and number 9 are allowed.");                   
+                    MessageBox.Show("Seed contains wrong letters. Only uppercase A-Z and number 9 are allowed.", "Seed validation");                   
                     return;
                 }
             }
@@ -106,7 +107,10 @@ namespace IOTADemos
         /// </summary>
         private void Seed_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Each wallet is identified and protected by a unique access key known as a ‘seed’. The seed is an 81-character string, comprised of capital letters A-Z and the number 9. It’s important to note that while we call them wallets, they do not actually store tokens. They are better thought of as keychains that provide access to the tokens you store permanently on the ledger.", "Seed help");
+            MessageBox.Show("Each wallet is identified and protected by a unique access key known as a ‘seed’. " +
+                "The seed is an 81-character string, comprised of capital letters A-Z and the number 9. " +
+                "It’s important to note that while we call them wallets, they do not actually store tokens. " +
+                "They are better thought of as keychains that provide access to the tokens you store permanently on the ledger.", "Seed help");
         }
 
         /// <summary>
@@ -114,7 +118,8 @@ namespace IOTADemos
         /// </summary>
         private void Node_question_mark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Full node is one of the participants in the decentralized IOTA network and serves as an API, to which you connect to in order to communicate with the network.", "Node help");
+            MessageBox.Show("Full node is one of the participants in the decentralized IOTA network and serves as an API, " +
+                "to which you connect to in order to communicate with the network.", "Node help");
         }
 
         private void SeedInput_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

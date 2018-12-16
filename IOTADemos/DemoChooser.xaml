@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOTADemos"
         mc:Ignorable="d"
-        Title="DemoChooser" Height="600" Width="760" Visibility="Visible" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="DemoChooser" Height="800" Width="1000" Visibility="Visible" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.903" Margin="218.554,65.195,214.554,468.902" TextWrapping="Wrap" VerticalAlignment="Center" Width="326.892" FontSize="48" FontFamily="Segoe UI Light"><Run Text="Choose a"/><Run Text=" "/><Run Text="demo"/></TextBlock>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="25" Margin="717,10,0,0" VerticalAlignment="Top" Width="25" Source="x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-        <Button x:Name="Demo1_button" Content="Demo 1" HorizontalAlignment="Left" Margin="121.534,299.971,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
-        <Button x:Name="Demo2_button" Content="Demo 2" HorizontalAlignment="Left" Margin="312.034,299.971,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
-        <Button x:Name="Demo3_button" Content="Demo 3" HorizontalAlignment="Left" Margin="493.534,299.971,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Button x:Name="Demo1_button" Content="Demo 1" HorizontalAlignment="Left" Margin="235.534,424.471,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <Button x:Name="Demo2_button" Content="Demo 2" HorizontalAlignment="Left" Margin="426.034,424.471,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <Button x:Name="Demo3_button" Content="Demo 3" HorizontalAlignment="Left" Margin="607.534,424.471,0,0" VerticalAlignment="Top" Width="163.12" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
     </Grid>
 </Window>

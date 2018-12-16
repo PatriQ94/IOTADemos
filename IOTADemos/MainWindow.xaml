@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOTADemos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="760" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainWindow" Height="800" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.902" Margin="165.054,67.049,165.054,467.049" TextWrapping="Wrap" VerticalAlignment="Center" Width="429.892" FontSize="48" FontFamily="Segoe UI Light"><Run Text="IOTA demo"/><Run Text=" showcase"/></TextBlock>
-        <TextBlock x:Name="Insert_seed_text" HorizontalAlignment="Center" Height="62.804" Margin="160.534,124.098,162.534,413.098" VerticalAlignment="Center" Width="436.932" FontSize="18" FontFamily="Segoe UI Light" TextWrapping="Wrap"><Run Text="Before "/><Run Text="choosing a demo"/><Run Text=", "/><Run Text="you have to "/><Run Text="insert your seed or generate a random one"/><Run Text=" and choose a node to connect to"/></TextBlock>
-        <TextBox x:Name="SeedInput" HorizontalAlignment="Left" Height="64.993" Margin="160.534,244.518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425.432" FontSize="16" Background="#FFDDDDDD" Padding="10,10,5,5" TextChanged="SeedInput_TextChanged" GotFocus="SeedInput_GotFocus" LostFocus="SeedInput_LostFocus" Text="Insert your seed"/>
-        <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="717,10,0,0" VerticalAlignment="Top" Width="25" Source="x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-        <ComboBox x:Name="Node_chooser" HorizontalAlignment="Left" Margin="160.534,391,0,0" VerticalAlignment="Top" Width="425.432" Height="47.46" SelectedIndex="0" FontSize="16" Padding="10,10,5,5">
+        <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.902" Margin="0,131.049,0,603.049" TextWrapping="Wrap" VerticalAlignment="Center" Width="429.892" FontSize="48" FontFamily="Segoe UI Light"><Run Text="IOTA demo"/><Run Text=" showcase"/></TextBlock>
+        <TextBlock x:Name="Insert_seed_text" HorizontalAlignment="Center" Height="62.804" Margin="0,201.951,0,535.245" VerticalAlignment="Center" Width="492.355" FontSize="20" FontFamily="Segoe UI Light" TextWrapping="Wrap"><Run Text="Before "/><Run Text="choosing a demo"/><Run Text=", "/><Run Text="you have to "/><Run Text="insert your seed or generate a random one"/><Run Text=" and choose a node to connect to"/></TextBlock>
+        <TextBox x:Name="SeedInput" HorizontalAlignment="Center" Height="64.993" Margin="200,0,200,50" TextWrapping="Wrap" VerticalAlignment="Center" Width="600" FontSize="16" Background="#FFDDDDDD" Padding="10,10,5,5" TextChanged="SeedInput_TextChanged" GotFocus="SeedInput_GotFocus" LostFocus="SeedInput_LostFocus" Text="Insert your seed"/>
+        <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <ComboBox x:Name="Node_chooser" HorizontalAlignment="Left" Margin="200,507.079,0,0" VerticalAlignment="Top" Width="600" Height="47.46" SelectedIndex="0" FontSize="16" Padding="10,10,5,5">
             <ComboBoxItem Visibility="Collapsed">Choose a node to connect</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="Continue_button" Content="Continue" HorizontalAlignment="Left" Margin="419.346,494.971,0,0" VerticalAlignment="Top" Width="167.12" Height="52.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Continue_button_Click"/>
-        <Button x:Name="Randomize_seed_button" Content="Randomize seed" HorizontalAlignment="Left" Margin="182.346,315.511,0,0" VerticalAlignment="Top" Width="382.12" Height="31.159" Background="#FF006EC9" FontSize="22" Foreground="White" Click="Randomize_seed_button_Click"/>
-        <Image x:Name="Seed_question_mark" HorizontalAlignment="Left" Height="64.993" Margin="590.966,244.518,0,0" VerticalAlignment="Top" Width="43.5" Source="question_mark.png" MouseLeftButtonDown="Seed_question_mark_MouseLeftButtonDown"/>
-        <Image x:Name="Node_question_mark" HorizontalAlignment="Left" Height="47.46" Margin="598.966,390,0,0" VerticalAlignment="Top" Width="35.5" Source="question_mark.png" MouseLeftButtonDown="Node_question_mark_MouseLeftButtonDown"/>
+        <Button x:Name="Continue_button" Content="Continue" HorizontalAlignment="Left" Margin="632.88,681.05,0,0" VerticalAlignment="Top" Width="167.12" Height="52.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Continue_button_Click"/>
+        <Button x:Name="Randomize_seed_button" Content="Randomize seed" HorizontalAlignment="Left" Margin="311.269,412.496,0,0" VerticalAlignment="Top" Width="382.12" Height="31.16" Background="#FF006EC9" FontSize="22" Foreground="White" Click="Randomize_seed_button_Click"/>
+        <Image x:Name="Seed_question_mark" HorizontalAlignment="Left" Height="64.992" Margin="805,342.504,0,0" VerticalAlignment="Top" Width="43.5" Source="Assets/question_mark.png" MouseLeftButtonDown="Seed_question_mark_MouseLeftButtonDown"/>
+        <Image x:Name="Node_question_mark" HorizontalAlignment="Left" Height="47.46" Margin="805,507.079,0,0" VerticalAlignment="Top" Width="35.5" Source="Assets/question_mark.png" MouseLeftButtonDown="Node_question_mark_MouseLeftButtonDown"/>
     </Grid>
 </Window>
