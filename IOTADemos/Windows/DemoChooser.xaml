@@ -12,5 +12,6 @@
         <Button x:Name="Demo1_button" Content="Transaction demo" HorizontalAlignment="Left" Margin="177.034,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Demo1_button_Click"/>
         <Button x:Name="Demo2_button" Content="Demo 2" HorizontalAlignment="Left" Margin="408.034,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
         <Button x:Name="Demo3_button" Content="Demo 3" HorizontalAlignment="Left" Margin="649.534,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
+        <Image x:Name="Back_button" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/back.png" MouseLeftButtonDown="Back_button_MouseLeftButtonDown"/>
     </Grid>
 </Window>

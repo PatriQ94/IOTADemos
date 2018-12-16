@@ -32,5 +32,12 @@ namespace IOTADemos.Windows
                 App.Current.Windows[intCounter].Close();
             }
         }
+
+        private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Hide();
+            DemoChooser dc = new DemoChooser();
+            dc.ShowDialog();
+        }
     }
 }

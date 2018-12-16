@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Demo1" Height="800" Width="1000" Visibility="Visible" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="136.82" Margin="316.634,73.648,244.296,589.532" TextWrapping="Wrap" VerticalAlignment="Center" Width="439.07" FontSize="48" FontFamily="Segoe UI Light"><Run Text="Transaction demo"/><Run Text=" template"/><Run Text=", in progress"/></TextBlock>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="54.32" Margin="200,10,185.796,735.68" TextWrapping="Wrap" VerticalAlignment="Center" Width="602.57" FontSize="36" FontFamily="Segoe UI Light"><Run Text="Transaction demo"/><Run Text=" template"/><Run Text=", in progress"/></TextBlock>
+        <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="25,382.5,25,0" Stroke="Black" VerticalAlignment="Top" Width="950"/>
+        <Image x:Name="Back_button" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/back.png" MouseLeftButtonDown="Back_button_MouseLeftButtonDown"/>
     </Grid>
 </Window>

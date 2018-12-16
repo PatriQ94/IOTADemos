@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOTADemos.BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,15 @@ namespace IOTADemos.Windows
             this.Hide();
             Demo1 d1 = new Demo1();
             d1.ShowDialog();
+        }
+
+        private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Hide();
+            MainWindow main = new MainWindow();
+            main.SeedInput.Text = Static.seed;
+            main.Node_chooser.Text = Static.currentNode;
+            main.ShowDialog();
         }
     }
 }
