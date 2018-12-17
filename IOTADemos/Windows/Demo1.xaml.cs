@@ -71,6 +71,7 @@ namespace IOTADemos.Windows
         private void SendButtonMenu_Click(object sender, RoutedEventArgs e)
         {
             HistoryFundsGroup.Visibility = Visibility.Hidden;
+            ReceiveFundsGroup.Visibility = Visibility.Hidden;
             SendFundsGroup.Visibility = Visibility.Visible;
         }
 
@@ -78,11 +79,13 @@ namespace IOTADemos.Windows
         {
             SendFundsGroup.Visibility = Visibility.Hidden;
             HistoryFundsGroup.Visibility = Visibility.Hidden;
+            ReceiveFundsGroup.Visibility = Visibility.Visible;
         }
 
         private void HistoryButtonMenu_Click(object sender, RoutedEventArgs e)
         {
             SendFundsGroup.Visibility = Visibility.Hidden;
+            ReceiveFundsGroup.Visibility = Visibility.Hidden;
             HistoryFundsGroup.Visibility = Visibility.Visible;
         }
     }
