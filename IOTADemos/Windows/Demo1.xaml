@@ -51,5 +51,22 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
+        <Grid x:Name="ReceiveFundsGroup" Margin="262,157.092,19.38,429.024" Background="#CC006EC9" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="89*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="ReceiveFundsAddressOutput" HorizontalAlignment="Center" Height="61" Margin="10,14.092,10,102.884" TextWrapping="Wrap" VerticalAlignment="Center" Width="698.62" FontSize="16" Background="#FFDDDDDD" Padding="10,10,5,5" Text="Click the button to generate address" Grid.Row="1"/>
+            <Button x:Name="ReceiveFundsButton" Content="Generate address" HorizontalAlignment="Left" Margin="451.88,101.401,0,0" VerticalAlignment="Top" Width="256.74" Height="50" Background="#FF006EC9" FontSize="24" Foreground="White" Grid.Row="1"/>
+            <TextBlock x:Name="ReceiveFundsTitleBox" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="345.5" FontSize="24" Foreground="White" Grid.RowSpan="2"><Run Text="Receive"/><Run Text=" funds to below address"/></TextBlock>
+            <Rectangle x:Name="ReceiveSeparator1" HorizontalAlignment="Left" Height="12" Margin="-27.369,63.77,0,0" Stroke="#00000000" VerticalAlignment="Top" Width="27.817" Grid.Row="1">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                        <GradientStop Color="#FF006EC9"/>
+                        <GradientStop Color="#FF338BD4" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
     </Grid>
 </Window>
