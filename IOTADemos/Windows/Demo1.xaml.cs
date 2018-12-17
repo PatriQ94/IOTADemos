@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IOTADemos.BO;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tangle.Net.Entity;
+using Tangle.Net.Repository;
 
 namespace IOTADemos.Windows
 {
@@ -19,9 +23,33 @@ namespace IOTADemos.Windows
     /// </summary>
     public partial class Demo1 : Window
     {
+
+        private RestIotaRepository repository;
+
+
         public Demo1()
         {
             InitializeComponent();
+            repository = new RestIotaRepository(new RestClient(Static.currentNode));
+
+        }
+
+        private Address GetNextAvailableAddress()
+        {
+            Seed seed = new Seed(Static.seed);
+
+            for (int i = 0; i < 50; i++)
+            {
+                List<Address> addresses = repository.GetNewAddresses(seed, i, 1, 2);
+
+                if (addresses != null && addresses.Count > 0 && !addresses.First().SpentFrom)
+                {
+                    return addresses.First();
+                }
+
+            }
+
+            return null;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -53,7 +81,7 @@ namespace IOTADemos.Windows
         }
 
         private void HistoryButtonMenu_Click(object sender, RoutedEventArgs e)
-        {           
+        {
             SendFundsGroup.Visibility = Visibility.Hidden;
             HistoryFundsGroup.Visibility = Visibility.Visible;
         }
