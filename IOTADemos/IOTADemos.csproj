@@ -71,12 +71,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BL\Demo1.cs" />
     <Compile Include="BO\TXHistory.cs" />
     <Compile Include="Windows\Demo1.xaml.cs">
       <DependentUpon>Demo1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DemoChooser.xaml.cs">
       <DependentUpon>DemoChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Spinner.xaml.cs">
+      <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DemoChooser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Spinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,11 +139,7 @@
   <ItemGroup>
     <Resource Include="Assets\x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\Demo1\" />
-    <Folder Include="BL\Demo2\" />
-    <Folder Include="BL\Demo3\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\question_mark.png" />
   </ItemGroup>

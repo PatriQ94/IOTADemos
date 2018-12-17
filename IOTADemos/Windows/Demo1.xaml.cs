@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using Tangle.Net.Cryptography;
 using Tangle.Net.Repository;
 using Tangle.Net.Entity;
+using System.Windows.Media.Effects;
+using System.Threading;
 
 namespace IOTADemos.Windows
 {
@@ -24,33 +26,13 @@ namespace IOTADemos.Windows
     /// </summary>
     public partial class Demo1 : Window
     {
-
+        BlurEffect backgroundEffect = new BlurEffect();
         private RestIotaRepository repository;
-
 
         public Demo1()
         {
             InitializeComponent();
             repository = new RestIotaRepository(new RestClient(Static.currentNode));
-
-        }
-
-        private Address GetNextAvailableAddress()
-        {
-            Seed seed = new Seed(Static.seed);
-
-            for (int i = 0; i < 50; i++)
-            {
-                List<Address> addresses = repository.GetNewAddresses(seed, i, 1, 2);
-
-                if (addresses != null && addresses.Count > 0 && !addresses.First().SpentFrom)
-                {
-                    return addresses.First();
-                }
-
-            }
-
-            return null;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -92,9 +74,26 @@ namespace IOTADemos.Windows
 
         private void GenerateAddress_Click(object sender, RoutedEventArgs e)
         {
-            Address address = GetNextAvailableAddress();
-            ReceiveFundsAddressOutput.Text = address.Value;
+            backgroundEffect.Radius = 10;
+            Effect = backgroundEffect;
+            var temp = "";
 
+            //TODO: Fix this spinner
+            using (Spinner sp = new Spinner())
+            {
+                sp.Owner = this;
+                sp.Show();
+                Task taskA = Task.Run(() =>
+                {
+                    Address address = BL.Demo1.GetNextAvailableAddress(repository);
+                    temp = address.Value;
+                });
+                taskA.Wait();
+                sp.Hide();
+            }
+            ReceiveFundsAddressOutput.Text = temp;
+            backgroundEffect.Radius = 0;
+            Effect = backgroundEffect;
         }
     }
 }
