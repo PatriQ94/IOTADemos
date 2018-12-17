@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Linq;
 using IOTADemos.Windows;
+using Tangle.Net.Entity;
 
 namespace IOTADemos
 {
@@ -94,13 +95,17 @@ namespace IOTADemos
         /// </summary>
         private void Randomize_seed_button_Click(object sender, RoutedEventArgs e)
         {
+            /*
             var seed = "";
             for (int i = 0; i < 81; i++)
             {
                 int r = Static.random.Next(Static.alphabet.Count);
                 seed += Static.alphabet[r].ToString();
             }
-            SeedInput.Text = seed;
+            */
+            Static.seed = Seed.Random().Value;
+
+            SeedInput.Text = Static.seed;
         }
 
         /// <summary>

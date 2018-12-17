@@ -13,8 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Tangle.Net.Entity;
+using Tangle.Net.Cryptography;
 using Tangle.Net.Repository;
+using Tangle.Net.Entity;
 
 namespace IOTADemos.Windows
 {
@@ -87,6 +88,13 @@ namespace IOTADemos.Windows
             SendFundsGroup.Visibility = Visibility.Hidden;
             ReceiveFundsGroup.Visibility = Visibility.Hidden;
             HistoryFundsGroup.Visibility = Visibility.Visible;
+        }
+
+        private void GenerateAddress_Click(object sender, RoutedEventArgs e)
+        {
+            Address address = GetNextAvailableAddress();
+            ReceiveFundsAddressOutput.Text = address.Value;
+
         }
     }
 }
