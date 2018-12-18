@@ -13,9 +13,9 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <windows:AppUserControl VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
-        <windows:DemoChooser VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <windows:Demo1 VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <windows:Spinner VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <windows:AppUserControl Panel.ZIndex="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <windows:DemoChooser Panel.ZIndex="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <windows:Demo1 Panel.ZIndex="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <windows:Spinner Panel.ZIndex="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </Window>

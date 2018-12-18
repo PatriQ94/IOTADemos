@@ -26,22 +26,14 @@ namespace IOTADemos.Windows
             InitializeComponent();
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var numberOfWindows = App.Current.Windows.Count - 1;
-            for (int intCounter = numberOfWindows; intCounter >= 0; intCounter--)
-            {
-                App.Current.Windows[intCounter].Close();
-            }
-        }
-
         private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {          
-            DemoChooserViewModel.Instance.DemoChooserVisibility = false;
-            AppUserControlViewModel.Instance.AppUserControlVisibility = true;
+            DemoChooserViewModel.Instance.NavigateBack.Execute(demochooser);
+        }
 
-            AppUserControlViewModel.Instance.Seed_Input = Static.seed;
-            AppUserControlViewModel.Instance.Node_chooser.Add(Static.currentNode);
+        private void Exit_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DemoChooserViewModel.Instance.ExitApp.Execute(demochooser);
         }
     }
 }

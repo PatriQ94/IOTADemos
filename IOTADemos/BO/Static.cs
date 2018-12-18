@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Tangle.Net.Repository;
 
 namespace IOTADemos.BO
 {
@@ -14,5 +15,6 @@ namespace IOTADemos.BO
         public static Random random = new Random();
         public static string seed { get; set; }
         public static string currentNode { get; set; }
+        public static RestIotaRepository repository;
     }
 }

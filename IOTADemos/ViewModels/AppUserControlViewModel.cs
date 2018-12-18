@@ -73,7 +73,7 @@ namespace IOTADemos.ViewModels
 
 
             AppUserControlVisibility = true;
-            Seed_Input = "Please insert your seed";
+            Seed_Input = "Insert your seed";
             FillNodeDropDown();
         }
 
@@ -94,17 +94,10 @@ namespace IOTADemos.ViewModels
         /// </summary>
         private void FillNodeDropDown()
         {
-            Node_chooser.Add("Choose a node to connect");
-
-            var responseString = Static.client.GetStringAsync("https://nodes.iota.works/api/ssl/live").Result;
-            if (!string.IsNullOrEmpty(responseString))
+            List<string> nodeList = new BL.AppUserControl().FillNodeDropDown();
+            foreach (var node in nodeList)
             {
-                List<Node> nodes = new List<Node>();
-                nodes = JsonConvert.DeserializeObject<List<Node>>(responseString);
-                foreach (var node in nodes)
-                {
-                    Node_chooser.Add(node.node);
-                }
+                Node_chooser.Add(node);
             }
         }
 
@@ -138,28 +131,7 @@ namespace IOTADemos.ViewModels
                 return;
             }
 
-            if (Seed_Input.Length > Seed.Length)
-            {
-                Seed_Input = Seed_Input.Substring(0, Seed.Length);
-            }
-
-            if (Seed_Input.Any(l => char.IsLower(l)))
-            {
-                StringBuilder sb = new StringBuilder(Seed_Input);
-                for (int i = 0; i < Seed_Input.Length; i++)
-                {
-                    if (char.IsLower(Seed_Input[i]))
-                    {
-                        sb[i] = char.ToUpper(Seed_Input[i]);
-                    }
-                }
-                Seed_Input = sb.ToString();
-            }
-
-            //if (SeedInput.SelectionStart == 0)
-            //{
-            //    SeedInput.SelectionStart = SeedInput.Text.Length;
-            //}
+            Seed_Input  = new BL.AppUserControl().SeedValidation(Seed_Input);
         }
 
         private void SeedInputOnFocusEvent(object parameter)

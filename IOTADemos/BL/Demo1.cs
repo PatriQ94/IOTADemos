@@ -1,4 +1,5 @@
 ﻿using IOTADemos.BO;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace IOTADemos.BL
     {
         public static Address GetNextAvailableAddress(RestIotaRepository repository)
         {
+            if (repository == null) {
+                repository = new RestIotaRepository(new RestClient(Static.currentNode));
+            }
+
             Seed seed = new Seed(Static.seed);
             for (int i = 0; i < 50; i++)
             {

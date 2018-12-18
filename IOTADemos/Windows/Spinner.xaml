@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOTADemos.Windows"
+        xmlns:viewModels="clr-namespace:IOTADemos.ViewModels"
         mc:Ignorable="d">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
@@ -96,6 +97,9 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid Visibility="{Binding SpinnerVisibility, Converter={StaticResource BoolToVis}}">
+        <Grid.DataContext>
+            <viewModels:SpinnerViewModel/>
+        </Grid.DataContext>
         <Ellipse x:Name="ellipse1" Fill="#7F2CD1D1" HorizontalAlignment="Left" Height="29.7" Margin="38.165,3.164,0,0" VerticalAlignment="Top" Width="30"/>
         <Ellipse x:Name="ellipse2" Fill="#7F2CD1D1" HorizontalAlignment="Left" Height="29.7" Margin="3.165,32.864,0,0" VerticalAlignment="Top" Width="30"/>
         <Ellipse x:Name="ellipse" Fill="#7F2CD1D1" HorizontalAlignment="Left" Height="29.7" Margin="82.165,3.164,0,0" VerticalAlignment="Top" Width="30"/>

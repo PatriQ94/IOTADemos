@@ -28,79 +28,20 @@ namespace IOTADemos.Windows
     public partial class Demo1 : UserControl
     {
         BlurEffect backgroundEffect = new BlurEffect();
-        private RestIotaRepository repository;
-
         public Demo1()
         {
             InitializeComponent();
             //repository = new RestIotaRepository(new RestClient(Static.currentNode));
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Exit_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var numberOfWindows = App.Current.Windows.Count - 1;
-            for (int intCounter = numberOfWindows; intCounter >= 0; intCounter--)
-            {
-                App.Current.Windows[intCounter].Close();
-            }
+            Demo1ViewModel.Instance.ExitApp.Execute(demo1);
         }
 
         private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Demo1ViewModel.Instance.Demo1Visibility = false;
-            DemoChooserViewModel.Instance.DemoChooserVisibility = true;
-        }
-
-        private void SendButtonMenu_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryFundsGroup.Visibility = Visibility.Hidden;
-            ReceiveFundsGroup.Visibility = Visibility.Hidden;
-            SendFundsGroup.Visibility = Visibility.Visible;
-        }
-
-        private void ReceiveButtonMenu_Click(object sender, RoutedEventArgs e)
-        {
-            SendFundsGroup.Visibility = Visibility.Hidden;
-            HistoryFundsGroup.Visibility = Visibility.Hidden;
-            ReceiveFundsGroup.Visibility = Visibility.Visible;
-        }
-
-        private void HistoryButtonMenu_Click(object sender, RoutedEventArgs e)
-        {
-            SendFundsGroup.Visibility = Visibility.Hidden;
-            ReceiveFundsGroup.Visibility = Visibility.Hidden;
-            HistoryFundsGroup.Visibility = Visibility.Visible;
-        }
-
-        private void GenerateAddress_Click(object sender, RoutedEventArgs e)
-        {
-            backgroundEffect.Radius = 10;
-            Effect = backgroundEffect;
-            var temp = "";
-
-            ////TODO: Fix this spinner
-            //using (Spinner sp = new Spinner())
-            //{
-            //    Application.Current.Dispatcher.Invoke(() => {
-            //        sp.Owner = this;
-            //        sp.Show();
-            //    });
-
-            //    Task taskA = Task.Run(() =>
-            //    {
-            //        Address address = BL.Demo1.GetNextAvailableAddress(repository);
-            //        temp = address.Value;
-            //    });
-            //    taskA.Wait();
-
-            //    Application.Current.Dispatcher.Invoke(() => {
-            //        sp.Hide();
-            //    });
-            //}
-            Address address = BL.Demo1.GetNextAvailableAddress(repository);
-            ReceiveFundsAddressOutput.Text = temp;
-            backgroundEffect.Radius = 0;
-            Effect = backgroundEffect;
+            Demo1ViewModel.Instance.NavigateBack.Execute(demo1);
         }
     }
 }

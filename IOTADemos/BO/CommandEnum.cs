@@ -14,6 +14,12 @@ namespace IOTADemos.BO
         SeedInputLostFocus,
 
         //DemoChooser
-        Demo1Navigate
+        NavigateBack,
+        Demo1Navigate,
+        SendFundsMenuButton,
+        ReceiveFundsMenuButton,
+        HistoryMenuButton,
+        SendFundsButton,
+        GenerateAddressButton
     }
 }

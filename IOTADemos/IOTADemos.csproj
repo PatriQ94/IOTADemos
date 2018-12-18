@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BL\AppUserControl.cs" />
     <Compile Include="ViewModels\SpinnerViewModel.cs" />
     <Compile Include="ViewModels\DemoChooserViewModel.cs" />
     <Compile Include="ViewModels\Demo1ViewModel.cs" />
