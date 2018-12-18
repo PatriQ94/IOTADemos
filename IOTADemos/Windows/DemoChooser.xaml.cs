@@ -1,4 +1,5 @@
 ﻿using IOTADemos.BO;
+using IOTADemos.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace IOTADemos.Windows
     /// <summary>
     /// Interaction logic for DemoChooser.xaml
     /// </summary>
-    public partial class DemoChooser : Window
+    public partial class DemoChooser : UserControl
     {
         public DemoChooser()
         {
@@ -34,20 +35,13 @@ namespace IOTADemos.Windows
             }
         }
 
-        private void Demo1_button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            Demo1 d1 = new Demo1();
-            d1.ShowDialog();
-        }
-
         private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Hide();
-            MainWindow main = new MainWindow();
-            main.SeedInput.Text = Static.seed;
-            main.Node_chooser.Text = Static.currentNode;
-            main.ShowDialog();
+        {          
+            DemoChooserViewModel.Instance.DemoChooserVisibility = false;
+            AppUserControlViewModel.Instance.AppUserControlVisibility = true;
+
+            AppUserControlViewModel.Instance.Seed_Input = Static.seed;
+            AppUserControlViewModel.Instance.Node_chooser.Add(Static.currentNode);
         }
     }
 }

@@ -1,12 +1,20 @@
-﻿<Window x:Class="IOTADemos.Windows.Demo1"
+﻿<UserControl x:Class="IOTADemos.Windows.Demo1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:IOTADemos.ViewModels"
         xmlns:local="clr-namespace:IOTADemos.Windows"
-        mc:Ignorable="d"
-        Title="Demo1" Height="800" Width="1000" Visibility="Visible" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White" Visibility="{Binding Demo1Visibility, Converter={StaticResource BoolToVis}}">
+        <Grid.DataContext>
+            <viewModels:Demo1ViewModel/>
+        </Grid.DataContext>
         <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="54.32" Margin="200,10,185.796,735.68" TextWrapping="Wrap" VerticalAlignment="Center" Width="602.57" FontSize="36" FontFamily="Segoe UI Light"><Run Text="Transaction demo"/><Run Text=" template"/><Run Text=", in progress"/></TextBlock>
         <Image x:Name="Exit_button" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
         <Rectangle x:Name="Separator" Fill="Black" HorizontalAlignment="Left" Height="9" Margin="25,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
@@ -69,4 +77,4 @@
             </Rectangle>
         </Grid>
     </Grid>
-</Window>
+</UserControl>

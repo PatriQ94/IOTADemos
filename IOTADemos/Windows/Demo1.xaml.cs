@@ -18,13 +18,14 @@ using Tangle.Net.Repository;
 using Tangle.Net.Entity;
 using System.Windows.Media.Effects;
 using System.Threading;
+using IOTADemos.ViewModels;
 
 namespace IOTADemos.Windows
 {
     /// <summary>
     /// Interaction logic for Demo1.xaml
     /// </summary>
-    public partial class Demo1 : Window
+    public partial class Demo1 : UserControl
     {
         BlurEffect backgroundEffect = new BlurEffect();
         private RestIotaRepository repository;
@@ -32,7 +33,7 @@ namespace IOTADemos.Windows
         public Demo1()
         {
             InitializeComponent();
-            repository = new RestIotaRepository(new RestClient(Static.currentNode));
+            //repository = new RestIotaRepository(new RestClient(Static.currentNode));
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,9 +47,8 @@ namespace IOTADemos.Windows
 
         private void Back_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
-            DemoChooser dc = new DemoChooser();
-            dc.ShowDialog();
+            Demo1ViewModel.Instance.Demo1Visibility = false;
+            DemoChooserViewModel.Instance.DemoChooserVisibility = true;
         }
 
         private void SendButtonMenu_Click(object sender, RoutedEventArgs e)
@@ -78,19 +78,26 @@ namespace IOTADemos.Windows
             Effect = backgroundEffect;
             var temp = "";
 
-            //TODO: Fix this spinner
-            using (Spinner sp = new Spinner())
-            {
-                sp.Owner = this;
-                sp.Show();
-                Task taskA = Task.Run(() =>
-                {
-                    Address address = BL.Demo1.GetNextAvailableAddress(repository);
-                    temp = address.Value;
-                });
-                taskA.Wait();
-                sp.Hide();
-            }
+            ////TODO: Fix this spinner
+            //using (Spinner sp = new Spinner())
+            //{
+            //    Application.Current.Dispatcher.Invoke(() => {
+            //        sp.Owner = this;
+            //        sp.Show();
+            //    });
+
+            //    Task taskA = Task.Run(() =>
+            //    {
+            //        Address address = BL.Demo1.GetNextAvailableAddress(repository);
+            //        temp = address.Value;
+            //    });
+            //    taskA.Wait();
+
+            //    Application.Current.Dispatcher.Invoke(() => {
+            //        sp.Hide();
+            //    });
+            //}
+            Address address = BL.Demo1.GetNextAvailableAddress(repository);
             ReceiveFundsAddressOutput.Text = temp;
             backgroundEffect.Radius = 0;
             Effect = backgroundEffect;

@@ -17,7 +17,7 @@ namespace IOTADemos.Windows
     /// <summary>
     /// Interaction logic for Spinner.xaml
     /// </summary>
-    public partial class Spinner : Window,IDisposable
+    public partial class Spinner : UserControl
     {
         public Spinner()
         {
@@ -30,8 +30,5 @@ namespace IOTADemos.Windows
 
         }
 
-        public void Dispose()
-        {
-        }
     }
 }

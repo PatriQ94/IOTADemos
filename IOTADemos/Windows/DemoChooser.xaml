@@ -1,17 +1,25 @@
-﻿<Window x:Class="IOTADemos.Windows.DemoChooser"
+﻿<UserControl x:Class="IOTADemos.Windows.DemoChooser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:IOTADemos.ViewModels"
         xmlns:local="clr-namespace:IOTADemos.Windows"
-        mc:Ignorable="d"
-        Title="DemoChooser" Height="800" Width="1000" Visibility="Visible" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White" Visibility="{Binding DemoChooserVisibility, Converter={StaticResource BoolToVis}}">
+        <Grid.DataContext>
+            <viewModels:DemoChooserViewModel/>
+        </Grid.DataContext>
         <TextBlock x:Name="Choose_an_IOTA_demo" HorizontalAlignment="Center" Height="65.903" Margin="218.554,65.195,214.554,468.902" TextWrapping="Wrap" VerticalAlignment="Center" Width="326.892" FontSize="48" FontFamily="Segoe UI Light"><Run Text="Choose a"/><Run Text=" "/><Run Text="demo"/></TextBlock>
         <Image x:Name="image" HorizontalAlignment="Left" Height="25" Margin="965,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/x.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-        <Button x:Name="Demo1_button" Content="Transaction demo" HorizontalAlignment="Left" Margin="177.034,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White" Click="Demo1_button_Click"/>
+        <Button x:Name="Demo1_button" Content="Transaction demo" HorizontalAlignment="Left" Margin="177.034,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White" Command="{Binding Demo1Navigate}"/>
         <Button x:Name="Demo2_button" Content="Demo 2" HorizontalAlignment="Left" Margin="408.034,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
         <Button x:Name="Demo3_button" Content="Demo 3" HorizontalAlignment="Left" Margin="649.534,424.471,0,0" VerticalAlignment="Top" Width="200" Height="88.159" Background="#FF006EC9" FontSize="24" Foreground="White"/>
         <Image x:Name="Back_button" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Source="/IOTADemos;component/Assets/back.png" MouseLeftButtonDown="Back_button_MouseLeftButtonDown"/>
     </Grid>
-</Window>
+</UserControl>
