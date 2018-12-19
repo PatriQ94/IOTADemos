@@ -76,7 +76,7 @@ namespace IOTADemos.ViewModels
             SendFundsMenuButton = new DelegateCommand<string>(CommandEnum.SendFundsMenuButton, (s) => SendTabOpen());
             ReceiveFundsMenuButton = new DelegateCommand<string>(CommandEnum.ReceiveFundsMenuButton, (s) => ReceiveTabOpen());
             HistoryMenuButton = new DelegateCommand<string>(CommandEnum.HistoryMenuButton, (s) => HistoryTabOpen());
-            GenerateAddressButton = new DelegateCommand<string>(CommandEnum.GenerateAddressButton, (s) => GenerateNewAddress());
+            GenerateAddressButton = new DelegateCommand<string>(CommandEnum.GenerateAddressButton, (s) => GenerateNewAddressAsync());
             Demo1Visibility = false;
             SendTabVisibility = true;
             ReceiveTabVisibility = false;
@@ -123,24 +123,27 @@ namespace IOTADemos.ViewModels
             Instance.HistoryTabVisibility = true;
         }
 
-        private void GenerateNewAddress()
+        private async Task GenerateNewAddressAsync()
         {
             backgroundEffect.Radius = 10;
             //Effect = backgroundEffect;
-            var tmp = "";
-
-            SpinnerViewModel.Instance.SpinnerVisibility = true;
-
+            Address address = new Address();
 
             Application.Current.Dispatcher.Invoke(() =>
             {
-                Address address = BL.Demo1.GetNextAvailableAddress(Static.repository);
-                tmp = address.Value;
+                SpinnerViewModel.Instance.SpinnerVisibility = true;
             });
 
-            SpinnerViewModel.Instance.SpinnerVisibility = false;
+            await Task.Run(() => {
+                address = BL.Demo1.GetNextAvailableAddress(Static.repository);
+            });
 
-            Address_Output = tmp;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                SpinnerViewModel.Instance.SpinnerVisibility = false;
+            });
+
+            Address_Output = address.Value;
             backgroundEffect.Radius = 0;
             //Effect = backgroundEffect;
         }
