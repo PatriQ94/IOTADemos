@@ -21,6 +21,7 @@ namespace IOTADemos
         public MainWindow()
         {
             InitializeComponent();
-        }      
+            Static.MainWindow = this;
+        }
     }
 }

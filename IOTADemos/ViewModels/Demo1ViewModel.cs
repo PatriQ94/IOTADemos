@@ -52,6 +52,7 @@ namespace IOTADemos.ViewModels
         public DelegateCommand<string> ReceiveFundsMenuButton { get; }
         public DelegateCommand<string> HistoryMenuButton { get; }
         public DelegateCommand<string> GenerateAddressButton { get; }
+        public DelegateCommand<object> SendFundsButton { get; }  
         public static Demo1ViewModel _instance;
         public static Demo1ViewModel Instance => _instance ?? (_instance = new Demo1ViewModel());
 
@@ -77,6 +78,7 @@ namespace IOTADemos.ViewModels
             ReceiveFundsMenuButton = new DelegateCommand<string>(CommandEnum.ReceiveFundsMenuButton, (s) => ReceiveTabOpen());
             HistoryMenuButton = new DelegateCommand<string>(CommandEnum.HistoryMenuButton, (s) => HistoryTabOpen());
             GenerateAddressButton = new DelegateCommand<string>(CommandEnum.GenerateAddressButton, (s) => GenerateNewAddressAsync());
+            SendFundsButton = new DelegateCommand<object>(CommandEnum.SendFundsButton, (s) => SendFunds());
             Demo1Visibility = false;
             SendTabVisibility = true;
             ReceiveTabVisibility = false;
@@ -127,9 +129,9 @@ namespace IOTADemos.ViewModels
         {
             backgroundEffect.Radius = 10;
             //Effect = backgroundEffect;
-            App.Current.MainWindow.Effect = backgroundEffect;
+            //App.Current.MainWindow.Effect = backgroundEffect;
+            Static.MainWindow.Screens.Effect = backgroundEffect;
             Address address = new Address();
-
             Application.Current.Dispatcher.Invoke(() =>
             {
                 SpinnerViewModel.Instance.SpinnerVisibility = true;
@@ -146,8 +148,12 @@ namespace IOTADemos.ViewModels
 
             Address_Output = address.Value;
             backgroundEffect.Radius = 0;
-            App.Current.MainWindow.Effect = backgroundEffect;
-            //Effect = backgroundEffect;
+            //App.Current.MainWindow.Effect = backgroundEffect;
+            Static.MainWindow.Screens.Effect = backgroundEffect;
+        }
+
+        private void SendFunds() {
+            MessageBox.Show("Sending funds ole");
         }
     }
 }

@@ -16,5 +16,6 @@ namespace IOTADemos.BO
         public static string seed { get; set; }
         public static string currentNode { get; set; }
         public static RestIotaRepository repository;
-    }
+        public static MainWindow MainWindow { get; set; }
+}
 }
