@@ -127,6 +127,7 @@ namespace IOTADemos.ViewModels
         {
             backgroundEffect.Radius = 10;
             //Effect = backgroundEffect;
+            App.Current.MainWindow.Effect = backgroundEffect;
             Address address = new Address();
 
             Application.Current.Dispatcher.Invoke(() =>
@@ -145,6 +146,7 @@ namespace IOTADemos.ViewModels
 
             Address_Output = address.Value;
             backgroundEffect.Radius = 0;
+            App.Current.MainWindow.Effect = backgroundEffect;
             //Effect = backgroundEffect;
         }
     }
